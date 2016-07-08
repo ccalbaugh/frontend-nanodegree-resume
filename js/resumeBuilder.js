@@ -7,7 +7,7 @@ var model = {
 		"contacts": {
 			"mobile": "319-330-1742",
 			"email": "CadenAlbaugh@gmail.com",
-			"GitHub": "https://github.com/ccalbaugh",
+			"GitHub": "ccalbaugh",
 			"twitter": "@CadenAlbaugh",
 			"location": "Iowa City, IA"
 		},
@@ -22,24 +22,24 @@ var model = {
 		"jobs": [
 			{
 				"employer": "Albaugh PHC",
-				"title": "HVAC Technician",			
+				"title": "HVAC Tecnician/Plumber",
 				"location": "Tipton, IA",
 				"datesWorked": "October, 2013 - Present",
-				"description": "I provide cooling wind to those whose flame cannot be extinguished, and provide heat to those with ice in their hearts!"
+				"description": "Repairs Heating, Cooling, and Plumbing systems and Installs new ones when necessary"
 			},
 			{
-				"employer": "Albaugh PHC",
-				"title": "HVAC Technician",			
-				"location": "Tipton, IA",
-				"datesWorked": "October, 2013 - Present",
-				"description": "I provide cooling wind to those whose flame cannot be extinguished, and provide heat to those with ice in their hearts!"
-			}, 
-			{			
-				"employer": "Albaugh PHC",
-				"title": "HVAC Technician",			
-				"location": "Denver, CO",
-				"datesWorked": "October, 2013 - Present",
-				"description": "I provide cooling wind to those whose flame cannot be extinguished, and provide heat to those with ice in their hearts!"
+				"employer": "GEICO",
+				"title": "Service Agent",
+				"location": "Coralville, IA",
+				"datesWorked": "December, 2012 - October, 2013",
+				"description": "Handled issues with existing GEICO members"
+			},
+			{
+				"employer": "University of Iowa Parking",
+				"title": "Parking attendant/coordinator",
+				"location": "Iowa City, IA",
+				"datesWorked": "August, 2010 - December, 2012",
+				"description": "Exchanged money for parking space and coordinated the collection of money and transport of other attendants"
 			}
 		]
 	},
@@ -60,22 +60,22 @@ var model = {
 				"degree": "Nano Degree",
 				"major" : "Front End Developer",
 				"dates": "2016 - Present"
-			}	
+			}
 		]
 	},
 
 	projects: {
 		"projects": [
 			{
-				"title": "Sample Project 1",
+				"title": "The 10 Best National Parks in the U.S.A.",
 				"dates": "01/01/0001",
-				"description": "Dis is my Projekt",
+				"description": "A collection of the locations of the Best National Park Landmarks in the United States",
 				"images": [
-					"ImageUrl1"
+					"https://cloud.githubusercontent.com/assets/15692477/16016415/8fe7cbd4-3160-11e6-9ced-5d959995d8c4.png"
 				]
 			},
 			{
-				"title": "Sample Project 2",
+				"title": "Basic Frogger",
 				"dates": "01/01/0001",
 				"description": "Dis is my Projekt",
 				"images": [
@@ -147,7 +147,7 @@ var bioView = {
 			for (var i = 1; i < bio.skills.length; i++) {
 				formattedSkills = HTMLskills.replace("%data%", bio.skills[i]);
 				$("#skills").append(formattedSkills);
-			}	
+			}
 		}
 	}
 };
@@ -173,7 +173,7 @@ var workView = {
 };
 
 var schoolView = {
-	
+
 	init: function() {
 		var education = octopus.getEducation();
 		for (key in education.schools) {
@@ -189,12 +189,12 @@ var schoolView = {
 				var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[key].location);
 				$(".education-entry:last").append(formattedLocation);
 			}
-		}	
+		}
 	}
 };
 
 var projectView = {
-	
+
 	init: function() {
 		var projects = octopus.getProjects();
 		for (key in projects.projects) {
@@ -216,15 +216,17 @@ var projectView = {
 	}
 };
 
-$(internationalizeButton).on('click', function(name) {
+$("#main").append(internationalizeButton);
+
+var inName = function(name) {
 	name = name.trim().split(" ");
 	name[1] = name[1].toUpperCase();
 	name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
 
 	return name[0] + " " + name[1];
-});
+};
 
-$("#main").append(internationalizeButton);
+$(internationalizeButton).on('click', inName);
 
 $("#mapDiv").append(googleMap);
 
