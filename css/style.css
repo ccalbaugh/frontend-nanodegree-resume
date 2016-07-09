@@ -160,6 +160,10 @@ img {
   padding: 10px;
 }
 
+.project-img {
+  width: 450px;
+}
+
 span {
   padding: 5px;
 }
@@ -180,6 +184,10 @@ span {
   .biopic {
     width: 175px;
   }
+
+  .project-img {
+  width: 200px;
+}
 }
 
 @media only screen and (max-width: 750px) {

@@ -67,21 +67,14 @@ var model = {
 	projects: {
 		"projects": [
 			{
-				"title": "The 10 Best National Parks in the U.S.A.",
-				"dates": "01/01/0001",
-				"description": "A collection of the locations of the Best National Park Landmarks in the United States",
+				"title": "Top 10 U.S. National Park Landmarks",
+				"dates": "06/16/2016",
+				"source": "https://github.com/ccalbaugh/neighborhood-map-project.git",
+				"description": "A searchable collection of the locations of the Best National Park Landmarks in the United States",
 				"images": [
 					"https://cloud.githubusercontent.com/assets/15692477/16016415/8fe7cbd4-3160-11e6-9ced-5d959995d8c4.png"
 				]
 			},
-			{
-				"title": "Basic Frogger",
-				"dates": "01/01/0001",
-				"description": "Dis is my Projekt",
-				"images": [
-					"ImageUrl2"
-				]
-			}
 		]
 	}
 };
@@ -200,7 +193,8 @@ var projectView = {
 		for (key in projects.projects) {
 			$("#projects").append(HTMLprojectStart);
 			var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[key].title);
-			$(".project-entry:last").append(formattedProjectTitle);
+			var formattedProjectSource = HTMLprojectTitle.replace("#", projects.projects[key].source);
+			$(".project-entry:last").append(formattedProjectTitle + formattedProjectSource);
 			var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[key].dates);
 			$(".project-entry:last").append(formattedProjectDates);
 			var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[key].description);
