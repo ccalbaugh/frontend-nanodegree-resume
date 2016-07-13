@@ -15,7 +15,7 @@ var model = {
 		"skills": [
 			"Backflips", "Regeneration", "Telepathy", "HopScotch"
 		],
-		"bioPic": "images/197x148.gif"
+		"biopic": "images/197x148.gif"
 	},
 
 	work: {
@@ -24,21 +24,21 @@ var model = {
 				"employer": "Albaugh PHC",
 				"title": "HVAC Tecnician/Plumber",
 				"location": "Tipton, IA",
-				"datesWorked": "October, 2013 - Present",
+				"dates": "October, 2013 - Present",
 				"description": "Repairs Heating, Cooling, and Plumbing systems and Installs new ones when necessary"
 			},
 			{
 				"employer": "GEICO",
 				"title": "Service Agent",
 				"location": "Coralville, IA",
-				"datesWorked": "December, 2012 - October, 2013",
+				"dates": "December, 2012 - October, 2013",
 				"description": "Handled issues with existing GEICO members"
 			},
 			{
 				"employer": "University of Iowa Parking",
 				"title": "Parking attendant/coordinator",
 				"location": "Iowa City, IA",
-				"datesWorked": "August, 2010 - December, 2012",
+				"dates": "August, 2010 - December, 2012",
 				"description": "Exchanged money for parking space and coordinated the collection of money and transport of other attendants"
 			}
 		]
@@ -50,18 +50,23 @@ var model = {
 				"name": "University of Iowa",
 				"location": "Iowa City, IA",
 				"degree": "BA",
-				"major" : "International Studies",
+				"majors" : ["International Studies"],
 				"minor" : "Portuguese",
-				"dates": "2010 - 2012"
+				"dates": "2010 - 2012",
+				"url": "www.uiowa.edu"
 			},
 			{
 				"name": "Udacity",
 				"location": "Online",
 				"degree": "Nano Degree",
-				"major" : "Front End Developer",
-				"dates": "2016 - Present"
+				"majors" : ["Front End Developer"],
+				"dates": "2016 - Present",
+				"url": "www.udacity.com"
 			}
-		]
+		],
+		"onlineCourses": [
+
+		],
 	},
 
 	projects: {
@@ -74,7 +79,7 @@ var model = {
 				"images": [
 					"https://cloud.githubusercontent.com/assets/15692477/16016415/8fe7cbd4-3160-11e6-9ced-5d959995d8c4.png"
 				]
-			},
+			}
 		]
 	}
 };
@@ -84,10 +89,10 @@ var model = {
 var octopus = {
 
 	init: function() {
-		bioView.init();
-		workView.init();
-		schoolView.init();
-		projectView.init();
+		bioView.display();
+		workView.display();
+		schoolView.display();
+		projectView.display();
 	},
 
 	getBio: function() {
@@ -111,24 +116,22 @@ var octopus = {
 
 var bioView = {
 
-	init: function() {
+	display: function() {
 		var bio = octopus.getBio();
 		var formattedName = HTMLheaderName.replace("%data%", bio.name);
 		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 		$("#header:first").prepend(formattedName + formattedRole);
-		var formattedLocal = HTMLlocation.replace("%data%", bio.contacts.location);
-		$("#topContacts").append(formattedLocal);
-		var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-		$("#topContacts").append(formattedMobile);
-		var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-		$("#topContacts").append(formattedEmail);
-		var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-		$("#topContacts").append(formattedTwitter);
-		var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.GitHub);
-		$("#topContacts").append(formattedGithub);
 
-		var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-		$("#topContacts").append(formattedBioPic);
+		var formattedLocal = HTMLlocation.replace("%data%", bio.contacts.location);
+		var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+		var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+		var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+		var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.GitHub);
+		$("#topContacts").append(formattedLocal, formattedMobile, formattedEmail, formattedTwitter, formattedGithub);
+		$("#footerContacts").append(formattedLocal, formattedMobile, formattedEmail, formattedTwitter, formattedGithub);
+
+		var formattedBiopic = HTMLbioPic.replace("%data%", bio.biopic);
+		$("#topContacts").append(formattedBiopic);
 		var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 		$("#topContacs").append(formattedWelcomeMsg);
 
@@ -147,66 +150,67 @@ var bioView = {
 
 var workView = {
 
-	init: function() {
+	display: function() {
 		var work = octopus.getWork();
-		for (key in work.jobs) {
-			if (work.jobs.hasOwnProperty(key)) {
-				$("#workExperience").append(HTMLworkStart);
-				var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[key].employer);
-				var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[key].title);
-				var formattedDatesWorked = HTMLworkDates.replace("%data%", work.jobs[key].datesWorked);
-				var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[key].location);
-				var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[key].description);
-				var formattedWorkInfo = formattedEmployer + formattedTitle + formattedDatesWorked + formattedLocation + formattedDescription;
 
-				$(".work-entry:last").append(formattedWorkInfo);
-			}
-		}
+		work.jobs.forEach(function(job) {
+			$("#workExperience").append(HTMLworkStart);
+			var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+			var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
+			var formattedDates = HTMLworkDates.replace("%data%", job.dates);
+			var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
+			var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
+			var formattedWorkInfo = formattedEmployer + formattedTitle + formattedDates + formattedLocation + formattedDescription;
+
+			$(".work-entry:last").append(formattedWorkInfo);
+		});
 	}
 };
 
 var schoolView = {
 
-	init: function() {
+	display: function() {
 		var education = octopus.getEducation();
-		for (key in education.schools) {
-			if (education.schools.hasOwnProperty(key)) {
-				$("#education").append(HTMLschoolStart);
-				var formattedName = HTMLschoolName.replace("%data%", education.schools[key].name);
-				var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[key].degree);
-				$(".education-entry:last").append(formattedName + formattedDegree);
-				var formattedDates = HTMLschoolDates.replace("%data%", education.schools[key].dates);
-				$(".education-entry:last").append(formattedDates);
-				var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[key].major);
-				$(".education-entry:last").append(formattedMajor);
-				var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[key].location);
-				$(".education-entry:last").append(formattedLocation);
-			}
-		}
+
+		education.schools.forEach(function(school) {
+			var formattedName = HTMLschoolName.replace("%data%", school.name);
+			var formattedDegree = HTMLschoolDegree.replace("%data%", school.degree);
+			$(".education-entry:last").append(formattedName + formattedDegree);
+			var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
+			$(".education-entry:last").append(formattedDates);
+			var formattedMajors = HTMLschoolMajor.replace("%data%", school.majors);
+			$(".education-entry:last").append(formattedMajors);
+			var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
+			$(".education-entry:last").append(formattedLocation);
+		});
 	}
 };
 
 var projectView = {
 
-	init: function() {
+	display: function() {
 		var projects = octopus.getProjects();
-		for (key in projects.projects) {
-			$("#projects").append(HTMLprojectStart);
-			var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[key].title);
-			var formattedProjectSource = HTMLprojectTitle.replace("#", projects.projects[key].source);
-			$(".project-entry:last").append(formattedProjectTitle + formattedProjectSource);
-			var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[key].dates);
-			$(".project-entry:last").append(formattedProjectDates);
-			var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[key].description);
-			$(".project-entry:last").append(formattedProjectDescription);
 
-			if (projects.projects[key].images.length > 0) {
-				for (image in projects.projects[key].images) {
-					var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[key].images[image]);
-					$(".project-entry:last").append(formattedProjectImage);
+
+		projects.projects.forEach(function(project) {
+			for (key in projects.projects) {
+				$("#projects").append(HTMLprojectStart);
+				var formattedProjectTitle = HTMLprojectTitle.replace("%data%", project.title);
+				var formattedProjectSource = HTMLprojectTitle.replace("#", project.source);
+				$(".project-entry:last").append(formattedProjectTitle + formattedProjectSource);
+				var formattedProjectDates = HTMLprojectDates.replace("%data%", project.dates);
+				$(".project-entry:last").append(formattedProjectDates);
+				var formattedProjectDescription = HTMLprojectDescription.replace("%data%", project.description);
+				$(".project-entry:last").append(formattedProjectDescription);
+
+				if (project.images.length > 0) {
+					for (image in project.images) {
+						var formattedProjectImage = HTMLprojectImage.replace("%data%", project.images[image]);
+						$(".project-entry:last").append(formattedProjectImage);
+					}
 				}
 			}
-		}
+		});
 	}
 };
 
