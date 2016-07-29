@@ -11,7 +11,7 @@ var model = {
 			"twitter": "@CadenAlbaugh",
 			"location": "Iowa City, IA"
 		},
-		"welcomeMessage": "Hey Everyone!",
+		"welcomeMessage": "Welcome",
 		"skills": [
 			"Backflips", "Regeneration", "Telepathy", "HopScotch"
 		],
@@ -22,7 +22,7 @@ var model = {
 		"jobs": [
 			{
 				"employer": "Albaugh PHC",
-				"title": "HVAC Tecnician/Plumber",
+				"title": "HVAC Technician/Plumber",
 				"location": "Tipton, IA",
 				"dates": "October, 2013 - Present",
 				"description": "Repairs Heating, Cooling, and Plumbing systems and Installs new ones when necessary"
@@ -59,7 +59,7 @@ var model = {
 				"name": "Udacity",
 				"location": "Online",
 				"degree": "Nano Degree",
-				"majors" : ["Front End Developer"],
+				"majors" : ["Front End Development"],
 				"dates": "2016 - Present",
 				"url": "www.udacity.com"
 			}
@@ -120,20 +120,23 @@ var bioView = {
 		var bio = octopus.getBio();
 		var formattedName = HTMLheaderName.replace("%data%", bio.name);
 		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-		$("#header:first").prepend(formattedName + formattedRole);
+		$("#header").prepend(formattedName, formattedRole);
 
 		var formattedLocal = HTMLlocation.replace("%data%", bio.contacts.location);
 		var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 		var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
 		var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
 		var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.GitHub);
+
 		$("#topContacts").append(formattedLocal, formattedMobile, formattedEmail, formattedTwitter, formattedGithub);
 		$("#footerContacts").append(formattedLocal, formattedMobile, formattedEmail, formattedTwitter, formattedGithub);
 
+		// $("#header").append('<div id="bioPicture"></div>');
+
 		var formattedBiopic = HTMLbioPic.replace("%data%", bio.biopic);
-		$("#topContacts").append(formattedBiopic);
 		var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-		$("#topContacs").append(formattedWelcomeMsg);
+
+		$("#header").append(formattedBiopic, formattedWelcomeMsg);
 
 		if(bio.skills.length > 0) {
 			$("#header").append(HTMLskillsStart);
@@ -173,6 +176,7 @@ var schoolView = {
 		var education = octopus.getEducation();
 
 		education.schools.forEach(function(school) {
+			$("#education").append(HTMLschoolStart);
 			var formattedName = HTMLschoolName.replace("%data%", school.name);
 			var formattedDegree = HTMLschoolDegree.replace("%data%", school.degree);
 			$(".education-entry:last").append(formattedName + formattedDegree);
@@ -180,6 +184,12 @@ var schoolView = {
 			$(".education-entry:last").append(formattedDates);
 			var formattedMajors = HTMLschoolMajor.replace("%data%", school.majors);
 			$(".education-entry:last").append(formattedMajors);
+
+			if (school.minor) {
+				var formattedMinors = HTMLschoolMinor.replace("%data%", school.minor);
+				$(".education-entry:last").append(formattedMinors);
+			}
+
 			var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
 			$(".education-entry:last").append(formattedLocation);
 		});
@@ -195,9 +205,8 @@ var projectView = {
 		projects.projects.forEach(function(project) {
 			for (key in projects.projects) {
 				$("#projects").append(HTMLprojectStart);
-				var formattedProjectTitle = HTMLprojectTitle.replace("%data%", project.title);
-				var formattedProjectSource = HTMLprojectTitle.replace("#", project.source);
-				$(".project-entry:last").append(formattedProjectTitle + formattedProjectSource);
+				var formattedProjectTitle = HTMLprojectTitle.replace("%data%", project.title).replace("#", project.source);
+				$(".project-entry:last").append(formattedProjectTitle);
 				var formattedProjectDates = HTMLprojectDates.replace("%data%", project.dates);
 				$(".project-entry:last").append(formattedProjectDates);
 				var formattedProjectDescription = HTMLprojectDescription.replace("%data%", project.description);
