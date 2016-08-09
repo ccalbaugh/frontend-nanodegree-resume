@@ -1,6 +1,7 @@
-/** {
-  border: 1px solid red;
-}*/
+* {
+  box-sizing: border-box;
+  border: 1px solid green;
+}
 
 body,
 div,
@@ -18,6 +19,15 @@ h6 {
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  background-color: #444;
+}
+
+.container-div {
+  /*box-shadow: 5px 0 0 0 rgba(0, 0, 0, 0.22);*/
+  box-shadow: -2px 8px 20px 18px rgba(0, 0, 0, 0.1);
+}
+
 .clear-fix {
   overflow: auto;
 }
@@ -26,6 +36,10 @@ h6 {
 .work-entry,
 .project-entry {
   padding: 0 5%;
+}
+
+#topContacts {
+  margin-top: 50px;
 }
 
 h1 {
@@ -42,6 +56,8 @@ h2 {
   line-height: 29px;
   padding: 10px;
 }
+
+
 
 h3 {
   font-style: italic;
@@ -65,6 +81,40 @@ h5 {
 
 }
 
+#name:hover {
+  box-shadow: inset 0 -2px #fff, 0 0px #fff;
+  transform: translateY(-2px);
+  transition: 0.3s ease-in;
+}
+
+h2 span:hover {
+  box-shadow: inset 0 -2px #fff, 0 0px #fff;
+  transform: translateY(-2px);
+  transition: 0.3s ease-in;
+}
+
+h2:hover {
+  transform: translateY(-2px);
+  transition: 0.3s ease-in;
+}
+
+.nav-div {
+  width: 100%;
+  display: flex;
+  position: fixed;
+  z-index: 100;
+  margin-bottom: 10px;
+  font-family: "Lobster";
+}
+
+.nav-bar li {
+  display: inline-block;
+  font-family: "Lobster";
+}
+
+.nav-item a {
+  display: inline;
+}
 
 .date-text {
   font-style: italic;
@@ -108,12 +158,17 @@ a {
   display: none;
 }
 
+ul#skills.flex-box {
+  text-align: left;
+  display: inline block;
+}
+
 .orange {
-  background-color: #f5ae23;
+  background-color: #FB8C00;
 }
 
 .orange-text {
-  color: #f5ae23;
+  color: #FB8C00;
 }
 
 .white-text {
@@ -151,6 +206,12 @@ a {
 
 ul {
   list-style-type: none;
+
+}
+
+li {
+  text-decoration: none;
+  list-style-type: none;
 }
 
 .biopic {
@@ -168,12 +229,57 @@ img {
   width: 450px;
 }
 
+.project-img:hover {
+  box-shadow: inset 0 -2px #fff, 0 0px #fff;
+  transform: translateY(-2px);
+  transition: 0.3s ease-in;
+}
+
 span {
   padding: 5px;
+  /*text-transform: uppercase;*/
+}
+
+
+
+.navA,
+.role {
+  position: relative;
+  text-align: left;
+  left: 5%;
+  font-family: "Lobster";
+}
+
+.navB,
+.navC,
+.navD,
+.navE {
+  text-align: right;
+  position: relative;
+  margin: 0 18px 0 18px;
+  left: 5%;
+}
+.left-nav {
+  text-align: right;
+}
+
+.nav li span:hover {
+  box-shadow: inset 0 -2px #fff, 0 0px #fff;
+  transform: translateY(-2px);
+  transition: 0.3s ease-in;
 }
 
 #lets-connect {
   text-align: center;
+}
+
+.nav-bar {
+  display: inline flex;
+  padding: 8px 0;
+  opacity: 1.0;
+  background-color: #bbb;
+/*  text-align: right;*/
+  width: 100%;
 }
 
 /* Media queries to handle various device widths */

@@ -118,9 +118,16 @@ var bioView = {
 
 	display: function() {
 		var bio = octopus.getBio();
+		$("body").prepend(HTMLnavDiv);
+
 		var formattedName = HTMLheaderName.replace("%data%", bio.name);
 		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-		$("#header").prepend(formattedName, formattedRole);
+		var navBar = $(".nav-bar");
+
+		navBar.prepend(formattedName, formattedRole);
+
+		$(".nav-div").prepend(navBar, HTMLhr);
+
 
 		var formattedLocal = HTMLlocation.replace("%data%", bio.contacts.location);
 		var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);

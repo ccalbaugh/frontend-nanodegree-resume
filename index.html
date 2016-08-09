@@ -9,25 +9,50 @@
   <script async type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
 </head>
+
 <body unresolved>
   <div id="main">
     <div id="header" class="center-content clearfix">
+      <ul id="nav-bar" class="nav nav-bar">
+        <span class="left-nav">
+          <li id="navB" class="nav nav-item navB">
+            <a data-scroll data-options:"speed: 1000" href="#workExperience">
+              <span>Work Experience</span>
+            </a>
+          </li>
+          <li id="navC" class="nav nav-item navC">
+            <a data-scroll data-options:"speed: 1000" href="#projects">
+              <span>Projects</span>
+            </a>
+          </li>
+          <li id="navD" class="nav nav-item navD">
+            <a data-scroll data-options:"speed: 1000" href="#education">
+              <span>Education</span>
+            </a>
+          </li>
+          <li id="navE" class="nav nav-item navE">
+            <a data-scroll data-options:"speed: 1000" href="#mapDiv">
+              <span>Where I've worked</span>
+            </a>
+          </li>
+        </span>
+      </ul>
       <ul id="topContacts" class='flex-box'></ul>
     </div><!-- #header -->
     <div style='clear: both;'></div>
-    <div id="workExperience" class='gray'>
-      <h2>Work Experience</h2>
+    <div id="workExperience" class='gray container-div'>
+      <h2 class="info"><span>Work Experience</span></h2>
     </div><!-- #workExperience -->
-    <div id="projects">
-      <h2>Projects</h2>
+    <div id="projects" class="container-div">
+      <h2 class="info"><span>Projects</span></h2>
     </div><!-- #projects -->
-    <div id="education" class='gray'>
-      <h2>Education</h2>
+    <div id="education" class='gray container-div'>
+      <h2 class="info"><span>Education</span></h2>
     </div><!-- #education -->
-    <div id="mapDiv">
-      <h2>Where I've Lived and Worked</h2>
+    <div id="mapDiv" class="container-div">
+      <h2 class="info"><span>Where I've Lived and Worked</span></h2>
     </div><!-- #mapDiv -->
-    <div id="letsConnect" class='dark-gray'>
+    <div id="letsConnect" class='dark-gray container-div'>
       <h2 class='orange center-text'>Let's Connect</h2>
         <ul id="footerContacts" class="flex-box">
       </ul>
@@ -36,6 +61,26 @@
 
   <script src="js/helper.js"></script>
   <script src="js/resumeBuilder.js"></script>
+  <!-- <script async src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: { // Amatic SC is for the Heading, Josefin Slab is for the infoWindow information
+        families: ['Amatic SC: 400, 700', 'Josefin Slab']
+      }
+    });
+  </script> -->
+  <script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Playfair+Display::latin', 'Lobster::latin', 'Poiret+One::latin', 'Amatic+SC:700:latin', 'Cinzel::latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
 
 </body>
 </html>
