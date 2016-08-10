@@ -13,30 +13,34 @@
 <body unresolved>
   <div id="main">
     <div id="header" class="center-content clearfix">
-      <ul id="nav-bar" class="nav nav-bar">
-        <span class="right-nav">
-          <li id="navB" class="nav nav-item navB">
-            <a data-scroll data-options:"speed: 1000" href="#workExperience">
-              <span>Work Experience</span>
-            </a>
-          </li>
-          <li id="navC" class="nav nav-item navC">
-            <a data-scroll data-options:"speed: 1000" href="#projects">
-              <span>Projects</span>
-            </a>
-          </li>
-          <li id="navD" class="nav nav-item navD">
-            <a data-scroll data-options:"speed: 1000" href="#education">
-              <span>Education</span>
-            </a>
-          </li>
-          <li id="navE" class="nav nav-item navE">
-            <a data-scroll data-options:"speed: 1000" href="#mapDiv">
-              <span>Where I've worked</span>
-            </a>
-          </li>
-        </span><!-- right-nav -->
-      </ul>
+      <div id="nav-bar" class="nav nav-bar">
+        <ul class="nav-list">
+          <div class="left-nav"></div>
+          <div class="right-nav">
+            <li id="navB" class="nav nav-item navB">
+              <a data-scroll data-options:"speed: 1000" href="#workExperience">
+                <span>Work Experience</span>
+              </a>
+            </li>
+            <li id="navC" class="nav nav-item navC">
+              <a data-scroll data-options:"speed: 1000" href="#projects">
+                <span>Projects</span>
+              </a>
+            </li>
+            <li id="navD" class="nav nav-item navD">
+              <a data-scroll data-options:"speed: 1000" href="#education">
+                <span>Education</span>
+              </a>
+            </li>
+            <li id="navE" class="nav nav-item navE">
+              <a data-scroll data-options:"speed: 1000" href="#mapDiv">
+                <span>Where I've worked</span>
+              </a>
+            </li>
+          </div><!-- right-nav -->
+        </ul>
+      </div><!-- nav-bar -->  
+      <hr>
       <ul id="topContacts" class='flex-box'></ul>
     </div><!-- #header -->
     <div style='clear: both;'></div>
@@ -70,7 +74,7 @@
     });
   </script> -->
   <script type="text/javascript">
-  WebFontConfig = {
+  WebFontConfig = {  // Lobster is for the header text and Playfair Display is for the informational fills
     google: { families: [ 'Playfair+Display::latin', 'Lobster::latin', 'Poiret+One::latin', 'Amatic+SC:700:latin', 'Cinzel::latin' ] }
   };
   (function() {
