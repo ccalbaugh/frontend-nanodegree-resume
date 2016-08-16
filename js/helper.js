@@ -1,7 +1,7 @@
 var HTMLheaderName = '<li id="navA" class="nav nav-item navA">' +
                       '<a data-scroll data-options:"speed: 1000" href="#header">' +
                       '<span><h1 id="name">%data%</h1></span></a></li>';
-var HTMLheaderRole = '<span class="role">%data%</span>';
+var HTMLheaderRole = '<li><span class="role">%data%</span></li>';
 
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';

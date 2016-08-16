@@ -134,8 +134,6 @@ var bioView = {
 		$("#topContacts").append(formattedLocal, formattedMobile, formattedEmail, formattedTwitter, formattedGithub);
 		$("#footerContacts").append(formattedLocal, formattedMobile, formattedEmail, formattedTwitter, formattedGithub);
 
-		// $("#header").append('<div id="bioPicture"></div>');
-
 		var formattedBiopic = HTMLbioPic.replace("%data%", bio.biopic);
 		var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
