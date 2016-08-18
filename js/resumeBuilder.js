@@ -65,10 +65,12 @@ var model = {
 			}
 		],
 		"onlineCourses": [
-			"name": "Front-end Development Nano Degree",
-			"school": "Udacity",
-			"dates": "2016 - Present",
-			"url": "www.Udacity.com"
+			{
+				"name": "Front-end Development Nano Degree",
+				"school": "Udacity",
+				"dates": "2016 - Present",
+				"url": "www.Udacity.com"
+			}
 		],
 	},
 
@@ -202,14 +204,15 @@ var schoolView = {
 		});
 
 		education.onlineCourses.forEach(function(course) {
-			$('#education').append(HTMLonlineClasses);
 			var formattedName = HTMLonlineTitle.replace(data,  course.name);
 			var formattedSchool = HTMLonlineSchool.replace(data, course.school);
 			var formattedDates = HTMLonlineDates.replace(data, course.dates);
 			var formattedUrl = HTMLonlineURL.replace(data, course.url);
 
-			HTMLonlineTitle.append(formattedName, formattedSchool, formattedDates, formattedUrl);
-		})
+			$("#education:last").append(HTMLonlineClasses);
+			var formattedOnlineInfo = formattedName + formattedSchool + formattedDates + formattedUrl;
+			$(".online-class-heading").append(formattedOnlineInfo);
+		});
 	}
 };
 
@@ -220,20 +223,26 @@ var projectView = {
 		var data = "%data%";
 
 		projects.projects.forEach(function(project) {
-			for (key in projects.projects) {
-				$("#projects").append(HTMLprojectStart);
-				var formattedProjectTitle = HTMLprojectTitle.replace(data, project.title).replace("#", project.source);
-				$(".project-entry:last").append(formattedProjectTitle);
-				var formattedProjectDates = HTMLprojectDates.replace(data, project.dates);
-				$(".project-entry:last").append(formattedProjectDates);
-				var formattedProjectDescription = HTMLprojectDescription.replace(data, project.description);
-				$(".project-entry:last").append(formattedProjectDescription);
+			$("#projects").append(HTMLprojectStart);
+			var formattedProjectTitle = HTMLprojectTitle.replace(data, project.title).replace("#", project.source);
+			$(".project-entry:last").append(formattedProjectTitle);
+			var formattedProjectDates = HTMLprojectDates.replace(data, project.dates);
+			$(".project-entry:last").append(formattedProjectDates);
+			var formattedProjectDescription = HTMLprojectDescription.replace(data, project.description);
+			$(".project-entry:last").append(formattedProjectDescription);
 
-				if (project.images.length > 0) {
-					for (image in project.images) {
-						var formattedProjectImage = HTMLprojectImage.replace(data, project.images[image]);
-						$(".project-entry:last").append(formattedProjectImage);
-					}
+			// if (project.images.length > 0) {
+			// 	project.images.forEach(function(image) {
+			// 		var formattedProjectImage = HTMLprojectImage.replace(data, project.images[image]);
+			// 		$(".project-entry:last").append(formattedProjectImage);
+			// 	});
+			// }
+
+			if (project.images.length > 0) {
+				var len = project.images.length;
+				for (var i = 0; i < len; i++) {
+					var formattedProjectImage = HTMLprojectImage.replace(data, project.images[i]);
+					$(".project-entry:last").append(formattedProjectImage);
 				}
 			}
 		});
