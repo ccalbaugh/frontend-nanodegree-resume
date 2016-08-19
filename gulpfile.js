@@ -17,8 +17,7 @@ gulp.task('styles', function() {
 		// Instead of killing the build, gulp will log the error and continue as usual
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer({ // tells which browser versions to prefix
-			browsers: ['last 2 versions'],
-			cascade: false
+			browsers: ['last 2 versions']
 		}))
 		.pipe(gulp.dest('dist/css'));
 });
