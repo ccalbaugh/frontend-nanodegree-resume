@@ -1,90 +1,93 @@
 <!DOCTYPE html>
-<head>
-  <meta charset="utf-8">
-  <title>Resume</title>
-  <link href="css/style.css" rel="stylesheet" type="text/css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Resume</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="dist/css/style.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="js/jQuery.js"></script>
-  <script async type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    <script src="js/jQuery.js"></script>
+    <script async type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
-</head>
+  </head>
 
-<body unresolved>
-  <div id="main">
-    <div id="header" class="center-content clearfix">
-      <div id="nav-bar" class="nav nav-bar">
-        <div class="nav-list">
-          <ul class="left-nav"></ul>
-          <ul class="right-nav">
-            <li id="navB" class="nav nav-item navB">
-              <a data-scroll data-options:"speed: 1000" href="#workExperience">
-                <span>Work Experience</span>
-              </a>
-            </li>
-            <li id="navC" class="nav nav-item navC">
-              <a data-scroll data-options:"speed: 1000" href="#projects">
-                <span>Projects</span>
-              </a>
-            </li>
-            <li id="navD" class="nav nav-item navD">
-              <a data-scroll data-options:"speed: 1000" href="#education">
-                <span>Education</span>
-              </a>
-            </li>
-            <li id="navE" class="nav nav-item navE">
-              <a data-scroll data-options:"speed: 1000" href="#mapDiv">
-                <span>Where I've worked</span>
-              </a>
-            </li>
-          </ul><!-- right-nav -->
-        </div>
-      </div><!-- nav-bar -->
+  <body>
+    <div id="main">
+      <div id="header" class="center-content clearfix">
+        <!-- Start Bs Navbar -->
+        <nav class="navbar navbar-full navbar-fixed-top">
+          <div class="container">
+            <button class="navbar-toggler hidden-sm-up" type="button"
+                            data-toggle="collapse" data-target="#collapsingNavbar" aria-controls="collapsingNavbar" aria-expand="false" aria-label="Toggle navigation">&#9776;
+            </button>
+            <div class="collapse navbar-toggleable-xs"
+                    id="collapsingNavbar">
+              <ul class="nav navbar-nav left-nav"></ul>
+              <ul class="nav navbar-nav right-nav">
+                <li class="nav-item active">
+                  <a class="nav-link navB" data-scroll data-options:"speed: 1000" href="#workExperience">
+                    <span>Work Experience</span><span class="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item navC">
+                  <a class="nav-link navB" data-scroll data-options:"speed: 1000" href="#projects">
+                    <span>Projects</span>
+                  </a>
+                </li>
+                <li class="nav-item navD">
+                  <a class="nav-link navB" data-scroll data-options:"speed: 1000" href="#education">
+                    <span>Education</span>
+                  </a>
+                </li>
+                <li class="nav-item navE">
+                  <a class="nav-link navB" data-scroll data-options:"speed: 1000" href="#mapDiv">
+                    <span>Where I've Worked</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- End Bs NavBar -->
+        <ul id="topContacts" class='flex-box'></ul>
+      </div><!-- #header -->
+      <div style='clear: both;'></div>
+      <div id="workExperience" class='gray container-div'>
+        <h2 class="info"><span>Work Experience</span></h2>
+      </div><!-- #workExperience -->
+      <div id="projects" class="container-div">
+        <h2 class="info"><span>Projects</span></h2>
+      </div><!-- #projects -->
+      <div id="education" class='gray container-div'>
+        <h2 class="info"><span>Education</span></h2>
+      </div><!-- #education -->
+      <div id="mapDiv" class="container-div">
+        <h2 class="info"><span>Where I've Lived and Worked</span></h2>
+      </div><!-- #mapDiv -->
+      <div id="letsConnect" class='dark-gray container-div'>
+        <h2 class='orange center-text'>Let's Connect</h2>
+          <ul id="footerContacts" class="flex-box">
+        </ul>
+      </div><!-- #letsConnect -->
+    </div><!-- #main -->
 
-      <ul id="topContacts" class='flex-box'></ul>
-    </div><!-- #header -->
-    <div style='clear: both;'></div>
-    <div id="workExperience" class='gray container-div'>
-      <h2 class="info"><span>Work Experience</span></h2>
-    </div><!-- #workExperience -->
-    <div id="projects" class="container-div">
-      <h2 class="info"><span>Projects</span></h2>
-    </div><!-- #projects -->
-    <div id="education" class='gray container-div'>
-      <h2 class="info"><span>Education</span></h2>
-    </div><!-- #education -->
-    <div id="mapDiv" class="container-div">
-      <h2 class="info"><span>Where I've Lived and Worked</span></h2>
-    </div><!-- #mapDiv -->
-    <div id="letsConnect" class='dark-gray container-div'>
-      <h2 class='orange center-text'>Let's Connect</h2>
-        <ul id="footerContacts" class="flex-box">
-      </ul>
-    </div><!-- #letsConnect -->
-  </div><!-- #main -->
-
-  <script src="js/helper.js"></script>
-  <script src="js/resumeBuilder.js"></script>
-  <!-- <script async src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
-  <script>
-    WebFont.load({
-      google: { // Amatic SC is for the Heading, Josefin Slab is for the infoWindow information
-        families: ['Amatic SC: 400, 700', 'Josefin Slab']
-      }
-    });
-  </script> -->
-  <script type="text/javascript">
-  WebFontConfig = {  // Lobster is for the header text and Playfair Display is for the informational fills
-    google: { families: [ 'Playfair+Display::latin', 'Lobster::latin', 'Poiret+One::latin', 'Amatic+SC:700:latin', 'Cinzel::latin' ] }
-  };
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })(); </script>
-
-</body>
+    <script src="dist/js/all.js"></script>
+    <!-- <script src="js/helper.js"></script>
+    <script src="js/resumeBuilder.js"></script>
+    <script async src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
+    <script async type="text/javascript">
+      WebFontConfig = {  // Lobster is for the header text and Playfair Display is for the informational fills
+        google: { families: [ 'Playfair+Display::latin', 'Lobster::latin', 'Poiret+One::latin', 'Amatic+SC:700:latin', 'Cinzel::latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
+  </body>
 </html>

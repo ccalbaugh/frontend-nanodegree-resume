@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ccalbaugh/frontend-nanodegree-resume/issues"
   },
-  "homepage": "https://github.com/ccalbaugh/frontend-nanodegree-resume#readme"
+  "homepage": "https://github.com/ccalbaugh/frontend-nanodegree-resume#readme",
+  "devDependencies": {
+    "gulp-bootstrap-configurator": "^0.3.3"
+  }
 }
