@@ -1,8 +1,5 @@
-var HTMLheaderName = '<li id="navA" class="nav nav-item navA">' +
-                      '<a data-scroll data-options:"speed: 1000" href="#header">' +
-                      '<span><h1 id="name">%data%</h1></span></a></li>';
-var HTMLheaderRole = '<li><span class="role">%data%</span></li>';
-
+var HTMLheaderName = '<div class="text-left nav-item navA"><a class="navbar-brand" href="#header">%data%</a></div>';
+var HTMLheaderRole = '<span class="role text-left">%data%</span>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';

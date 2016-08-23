@@ -11,7 +11,7 @@
 
 * {
   box-sizing: border-box;
-  /*border: 1px solid green;*/
+  // border: 1px solid green;
 }
 
 body,
@@ -33,11 +33,14 @@ h6 {
 
 body {
   background-color: #304040;
+  position: relative;
 }
 
 .container-div {
   box-shadow: 5px 0 0 0 rgba(0, 0, 0, 0.82);
   box-shadow: -2px 8px 20px 18px rgba(0, 0, 0, 0.1);
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .clear-fix {
@@ -50,15 +53,18 @@ body {
   padding: 0 5%;
 }
 
-#topContacts {
-  margin-top: 68px;
-}
-
 h1 {
   font-size: 40px;
-  color: #04202C;
-  line-height: 48px;
+  color: #04202C !important;
+  // line-height: 48px;
   display: inline-block;
+  font-family: "Lobster";
+
+  :hover {
+    box-shadow: inset 0 -2px #04202C, 0 0px #04202C;
+    transform: translateY(-2px);
+    transition: 0.3s ease-in;
+  }
 }
 
 h2 {
@@ -67,6 +73,18 @@ h2 {
   line-height: 29px;
   padding: 10px;
   color: #04202C;
+
+  span {
+    font-family: "Lobster";
+    font-size: 24px;
+    color: #5b7065;
+
+    :hover {
+      box-shadow: inset 0 -2px #5b7065, 0 0px #5b7065;
+      transform: translateY(-2px);
+      transition: 0.3s ease-in;
+    }
+  }
 }
 
 h3 {
@@ -91,31 +109,6 @@ h5 {
 
 }
 
-h1 {
-  font-family: "Lobster";
-}
-
-h1 #name:hover {
-  box-shadow: inset 0 -2px #04202C, 0 0px #04202C;
-  transform: translateY(-2px);
-  transition: 0.3s ease-in;
-}
-
-h2 {
-
-  span {
-    font-family: "Lobster";
-    font-size: 24px;
-    color: #5b7065;
-
-    :hover {
-      box-shadow: inset 0 -2px #5b7065, 0 0px #5b7065;
-      transform: translateY(-2px);
-      transition: 0.3s ease-in;
-    }
-  }
-}
-
 #header {
   background-color: #304040;
   margin-top: 0;
@@ -126,10 +119,18 @@ h2 {
     NAV STARTS HERE
 ******************************/
 
+.navbar-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: center;
+  width: 100%;
+}
+
 .navbar {
   display: inline-block;
   padding: 8px 0;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.9);
   text-align: left;
   width: 100%;
   vertical-align: middle;
@@ -140,11 +141,15 @@ h2 {
   font-family: "Lobster";
   top: 0;
   left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: center;
 }
 
 .navbar {
   li {
-    /*display: inline-block;*/
+    display: inline-block;
     font-family: "Lobster";
 
     :hover {
@@ -154,45 +159,55 @@ h2 {
   }
 }
 
-.left-nav {
-  position: relative;
-  text-align: left;
-  width: 33.3%;
-  height: 100%;
-  float: left;
+span:hover {
+  box-shadow: inset 0 -2px #5b7065, 0 0px #5b7065;
+  transform: translateY(-2px);
+  transition: 0.3s ease-in;
 }
 
-.right-nav {
-  position: inherit;
-  text-align: right;
-  width: 66.6%;
-  height: 100%;
-  float: right;
-
-  li:hover {
-    /*box-shadow: inset 0 -2px #EB8A3E, 0 0px #EB8A3E;*/
-    transform: translateY(-2px);
-    transition: 0.3s ease-in;
-  }
-
-  span:hover {
-    box-shadow: inset 0 -2px #5b7065, 0 0px #5b7065;
-    transform: translateY(-2px);
-    transition: 0.3s ease-in;
-  }
+.container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .nav li span {
   color: #5b7065;
+  align: middle;
 }
 
-.navA,
+.navbar-brand {
+  color: #04202C;
+  font-size: 30px;
+  font-family: "Lobster";
+  float: left;
+
+  // span {
+  //   // vertical-align: middle;
+  //   // height: 100%;
+  //   position: relative;
+  //   top: 50%;
+  //   transform: translateY(-50%);
+  // }
+}
+
+a .navbar-brand {
+  color: #04202C !important;
+  position: 0;
+  :hover {
+    box-shadow: inset 0 -2px #04202C, 0 0px #04202C;
+    transform: translateY(-2px);
+    transition: 0.3s ease-in;
+  }
+}
+
+.navbar-brand,
 .role {
   position: relative;
+  vertical-align: middle !important;
   text-align: left;
-  font-family: "Fairplay Display";
-  color: #785A46;
-  float: left;
+  float: left !important;
 }
 
 .navA span:hover {
@@ -205,16 +220,33 @@ h2 {
 .navC,
 .navD,
 .navE {
-  text-align: right;
-  position: relative;
-  margin: auto 19px;
+  // text-align: right;
+  // position: relative;
+  // margin: auto 19px;
   color: #304040;
-  float: right;
+  float: right !important;
+}
+
+.nav-item:last {
+  padding-right: 20px;
+  margin-right: 20px;
+}
+
+.navbar-toggle {
+  z-index: 3;
+}
+
+.row {
+  width: 100%;
 }
 
 /*****************************
     NAV ENDS HERE
 ******************************/
+
+.info span {
+  text-align: center;
+}
 
 .date-text {
   font-style: italic;
@@ -230,7 +262,6 @@ h2 {
   color: #EB8A3E;
   line-height: 16px;
   float: right;
-
 }
 
 p {
@@ -297,13 +328,17 @@ ul#skills.flex-box {
   background-color: #4a4a4a;
 }
 
+#topContacts {
+  padding-top: 100px;
+}
+
 .flex-box {
   display: -webkit-flex;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 10px;
+  padding-top: 10px;
 }
 
 .center-content {
@@ -336,9 +371,15 @@ img {
 
   :hover {
     box-shadow: inset 0 -2px #fff, 0 0px #fff;
-    transform: translateY(-2px);
-    transition: 0.3s ease-in;
+    transform: translateY(-2px) !important;
+    transition: 0.3s ease-in !important;
   }
+}
+
+.projects {
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 #projects a {
@@ -353,12 +394,6 @@ span {
 a span {
   color: #B23811;
 }
-
-/*.nav li span:hover {
-  box-shadow: inset 0 -2px #fff, 0 0px #fff;
-  transform: translateY(-2px);
-  transition: 0.3s ease-in;
-}*/
 
 #lets-connect {
   text-align: center;
@@ -396,7 +431,7 @@ a span {
 }
 
 @media only screen and (max-width: 850px) {
-  .nav-bar {
+  .navbar {
     justify-content: center;
   }
 
@@ -405,7 +440,22 @@ a span {
   }
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 768px) {
+  .navbar-brand {
+    font-size: 24px;
+    font-family: "Lobster";
+    color: #04202C;
+  }
+
+  .navA,
+  .navB,
+  .navC,
+  .navD,
+  .navE {
+    display: inline;
+    font-size: 12px;
+  }
+
   #lets-connect {
     margin-top: 10%;
   }
@@ -415,22 +465,37 @@ a span {
   .welcome-message {
     display: none;
   }
+
+  #skills-h3 {
+    display: inline;
+  }
+
+  #map {
+    display: block;
+    height: 100%;
+    margin: 0 5%;
+  }
+
+  #mapDiv {
+    height: 400px;
+    width: 100%;
+    padding-bottom: 5%;
+    margin: auto;
+  }
 }
 
-#map {
-  display: block;
-  height: 100%;
-  margin: 0 5%;
-}
+@media only screen and (max-width: 600px) {
+  .navbar {
+    display: flex;
+  }
 
-#mapDiv {
-  height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
-  margin: auto;
+  .nabar-brand {
+    width: 100%;
+  }
 }
 
 @media only screen and (min-width: 750px) {
+
   #skills-h3,
   .biopic {
     display: block;

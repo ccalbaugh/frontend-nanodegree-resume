@@ -84,6 +84,15 @@ var model = {
 				"images": [
 					"https://cloud.githubusercontent.com/assets/15692477/16016415/8fe7cbd4-3160-11e6-9ced-5d959995d8c4.png"
 				]
+			},
+			{
+				"title": "Frogger-like clone",
+				"dates": "04/20/2016",
+				"source": "https://github.com/ccalbaugh/frontend-nanodegree-arcade-game.git",
+				"description": "A classic frogger-like arcade game clone",
+				"images": [
+					"https://cloud.githubusercontent.com/assets/15692477/16016415/8fe7cbd4-3160-11e6-9ced-5d959995d8c4.png"
+				]
 			}
 		]
 	}
@@ -127,9 +136,8 @@ var bioView = {
 
 		var formattedName = HTMLheaderName.replace(data, bio.name);
 		var formattedRole = HTMLheaderRole.replace(data, bio.role);
-		var leftNav = $(".left-nav");
 
-		leftNav.append(formattedName, formattedRole);
+		$('.navbar-nav').prepend(formattedName);
 
 		var formattedLocal = HTMLlocation.replace(data, bio.contacts.location);
 		var formattedMobile = HTMLmobile.replace(data, bio.contacts.mobile);
@@ -230,13 +238,6 @@ var projectView = {
 			$(".project-entry:last").append(formattedProjectDates);
 			var formattedProjectDescription = HTMLprojectDescription.replace(data, project.description);
 			$(".project-entry:last").append(formattedProjectDescription);
-
-			// if (project.images.length > 0) {
-			// 	project.images.forEach(function(image) {
-			// 		var formattedProjectImage = HTMLprojectImage.replace(data, project.images[image]);
-			// 		$(".project-entry:last").append(formattedProjectImage);
-			// 	});
-			// }
 
 			if (project.images.length > 0) {
 				var len = project.images.length;
