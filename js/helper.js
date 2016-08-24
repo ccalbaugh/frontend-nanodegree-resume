@@ -1,4 +1,4 @@
-var HTMLheaderName = '<div class="text-left nav-item navA"><a class="navbar-brand" href="#header">%data%</a></div>';
+var HTMLheaderName = '<li class="text-left nav-item navA"><a class="navbar-brand" href="#header">%data%</a></li>';
 var HTMLheaderRole = '<span class="role text-left">%data%</span>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';

@@ -40,7 +40,7 @@ body {
   box-shadow: 5px 0 0 0 rgba(0, 0, 0, 0.82);
   box-shadow: -2px 8px 20px 18px rgba(0, 0, 0, 0.1);
   padding-top: 100px;
-  padding-bottom: 100px;
+  margin-bottom: 100px;
 }
 
 .clear-fix {
@@ -182,14 +182,6 @@ span:hover {
   font-size: 30px;
   font-family: "Lobster";
   float: left;
-
-  // span {
-  //   // vertical-align: middle;
-  //   // height: 100%;
-  //   position: relative;
-  //   top: 50%;
-  //   transform: translateY(-50%);
-  // }
 }
 
 a .navbar-brand {
@@ -220,9 +212,6 @@ a .navbar-brand {
 .navC,
 .navD,
 .navE {
-  // text-align: right;
-  // position: relative;
-  // margin: auto 19px;
   color: #304040;
   float: right !important;
 }
@@ -281,12 +270,6 @@ a {
   font-size: 18px;
   color: #f3f3f3;
   line-height: 28px;
-}
-
-#workExperience span,
-#workExperience a,
-#workExperience p {
-  /*color: #87D8AF;*/
 }
 
 #workExperience a {
@@ -377,9 +360,16 @@ img {
 }
 
 .projects {
-  display: flex;
-  align-content: center;
+  display: flex-wrap;
   justify-content: center;
+  align-items: center;
+}
+
+.project-entry{
+  margin: auto;
+  display: flex-wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 #projects a {
@@ -489,7 +479,7 @@ a span {
     display: flex;
   }
 
-  .nabar-brand {
+  .navbar-brand {
     width: 100%;
   }
 }

@@ -91,7 +91,7 @@ var model = {
 				"source": "https://github.com/ccalbaugh/frontend-nanodegree-arcade-game.git",
 				"description": "A classic frogger-like arcade game clone",
 				"images": [
-					"https://cloud.githubusercontent.com/assets/15692477/16016415/8fe7cbd4-3160-11e6-9ced-5d959995d8c4.png"
+					"https://cloud.githubusercontent.com/assets/15692477/17913961/d774aebe-6963-11e6-9b77-9d2671d4efe5.png"
 				]
 			}
 		]
